@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<h3 style="text-align: center">Report a refund / <a href="records.php">View refund data</a></h3>
+
+<div class="container">
+    <form id="refunds" action="refunds.php" method="POST">
+        <label for="date">Refund Date</label>
+        <input type="date" id="date" name="date" required><br><hr><br>
+
+        <label for="product-list">Product</label>
+        <select id="product-list" name="products">
+            <option disabled selected hidden>Choose a product</option>
+            <option v-for="product in prod">{{ product }}</option>
+        </select>
+
+        <label for="type_of_refund">Refund Type</label>
+        <select id="type_of_refund" name="type_of_refund">
+            <option disabled selected hidden>Choose a refund type</option>
+            <option v-for="item in options">{{ item }}</option>
+        </select>
+
+        <label for="ticket">Ticket link</label>
+        <input type="text" required id="ticket" name="ticket" placeholder="Ticket link...">
+
+        <label for="feedback">Refund Reason</label>
+        <textarea id="refund-reason" required name="refund-reason" placeholder="Write something.." style="height:100px"></textarea>
+
+        <label for="feedback">Feedback</label>
+        <textarea id="feedback" name="feedback" placeholder="Write something.." style="height:100px"></textarea>
+
+        <label for="github">GitHub report</label>
+        <input type="text" id="github" name="github" placeholder="GitHub report link...">
+        <input type="submit" name="submit" value="Submit">
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="assets/js/build.js"></script>
+</body>
+</html>
