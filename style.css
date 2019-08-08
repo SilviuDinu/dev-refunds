@@ -31,6 +31,7 @@ button#show{
     border-radius: 4px;
     cursor: pointer;
     outline: none;
+    vertical-align: inherit;
 }
 
 /*button#submit{*/
@@ -59,7 +60,7 @@ input[type=submit]:hover {
 
 .container {
     border-radius: 5px;
-    background-color: #f2f2f2;
+    background-color: #c4c4c459;
     padding: 20px;
     width: 40%;
     margin: 0 auto;
@@ -69,7 +70,7 @@ div#wrapper {
     border-radius: 5px;
     background-color: #f2f2f26e;
     padding: 10px;
-    width: 85%;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
     overflow: auto;
@@ -98,4 +99,111 @@ table#table th {
     text-align: center;
     background-color: #4CAF50;
     color: white;
+}
+
+.tabs-component-panels{
+    width: 100%;
+}
+
+.tabs-component {
+    margin: 4em 0;
+}
+
+.tabs-component-tabs {
+    border: solid 1px #ddd;
+    border-radius: 6px;
+    margin-bottom: 5px;
+}
+
+@media (min-width: 700px) {
+    .tabs-component-tabs {
+        border: 0;
+        align-items: stretch;
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: -1px;
+    }
+}
+
+.tabs-component-tab {
+    color: #999;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 0;
+    list-style: none;
+}
+
+.tabs-component-tab:not(:last-child) {
+    border-bottom: dotted 1px #ddd;
+}
+
+.tabs-component-tab:hover {
+    color: #666;
+}
+
+.tabs-component-tab.is-active {
+    color: #000;
+}
+
+.tabs-component-tab.is-disabled * {
+    color: #cdcdcd;
+    cursor: not-allowed !important;
+}
+
+@media (min-width: 700px) {
+    .tabs-component-tab {
+        background-color: #fff;
+        border: solid 1px #ddd;
+        border-radius: 3px 3px 0 0;
+        margin-right: .5em;
+        transform: translateY(2px);
+        transition: transform .3s ease;
+    }
+
+    .tabs-component-tab.is-active {
+        border-bottom: solid 1px #fff;
+        z-index: 2;
+        transform: translateY(0);
+    }
+}
+
+.tabs-component-tab-a {
+    align-items: center;
+    color: inherit;
+    display: flex;
+    padding: .75em 1em;
+    text-decoration: none;
+}
+
+.tabs-component-panels {
+    padding: 4em 0;
+
+}
+
+@media (min-width: 700px) {
+    .tabs-component-panels {
+        border-top-left-radius: 0;
+        background-color: #fff;
+        border: solid 1px #ddd;
+        border-radius: 0 6px 6px 6px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .05);
+        padding: 4em 2em;
+    }
+}
+
+select#product-list, select#type_of_refund{
+    vertical-align: inherit;
+    height: 39px;
+}
+
+
+.alert-success{
+    color: #3c763d;
+   background-color: #4CAF50;
+    border-color: #d6e9c6;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    text-align: center;
+    color: #fff;
 }

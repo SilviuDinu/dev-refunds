@@ -15,6 +15,20 @@
             }
         },
         methods: {
+            onSubmit: function () {
+                var msg = document.querySelector(".alert-success");
+                if (msg.style.display === 'none') {
+                    msg.style.display = 'block';
+                }
+                // var date = new Date();
+                // console.log(date);
+                // while((Date.now() - date/1) > 0 && (Date.now() - date/1) < 6000 ){
+                //     if (msg.style.display === 'block') {
+                //         msg.style.display = 'none';
+                //     }
+                // }
+            },
+
             // filterListByProduct: function () {
             //     this.product = event.target.value;
             // },
@@ -42,7 +56,11 @@
 
 <template>
     <div class="container">
-        <form id="refunds" action="http://localhost/wordpress/wp-json/refunds/v1/register_refunds" method="POST">
+        <div class="alert-success" style="display: none">
+            <strong>Success!</strong> You have reported a new refund</a>.
+        </div>
+        <form id="refunds" v-on:submit.prevent="onSubmit"
+              action="http://localhost/wordpress/wp-json/refunds/v1/register_refunds" method="POST">
             <label for="date">Refund Date</label>
             <input type="date" id="date" name="date" required><br>
             <hr>
@@ -61,7 +79,7 @@
             </select>
 
             <label for="ticket">Ticket link</label>
-            <input type="text" required id="ticket" name="ticket" placeholder="Ticket link...">
+            <input @submit="onSubmit" type="text" required id="ticket" name="ticket" placeholder="Ticket link...">
 
             <label for="feedback">Refund Reason</label>
             <textarea id="refund-reason" required name="refund-reason" placeholder="Write something.."
