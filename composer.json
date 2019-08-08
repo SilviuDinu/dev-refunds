@@ -1,11 +1,11 @@
 {
   "name": "codeinwp/",
-  "description": "A Vue.js WordPress plugin for keeping data related to ThemeIsle refunds",
+  "description": "A Vue.js WordPress Plugin",
   "homepage": "https://themeisle.com",
   "license": "GPL-2.0+",
   "authors": [
     {
-      "name": "Silviu Dinu",
+      "name": "SilviuDinu <silviu@themeisle.com>",
       "email": "friends@themeisle.com",
       "homepage": "https://themeisle.com"
     }

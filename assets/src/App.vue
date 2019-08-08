@@ -1,24 +1,156 @@
-/* jshint esversion: 6 */
-<template>
-	<div>
-		<h1>{{this.strings.title}}</h1>
-		<p>{{this.strings.description}}</p>
-		<a href="../../index.html">Homepage</a>
-	</div>
-</template>
+
+
 
 <script>
-  /* global REFUNDS */
-  export default {
-    data () {
-      return {
-        strings: REFUNDS.strings
-      }
-    },
-    name: 'App.vue'
-  }
+	import Vue from 'vue'
+	// import {fields} from './main.js'
+	// import {prods} from './main.js'
+	// import {options} from './main.js'
+	import {Tabs, Tab} from 'vue-tabs-component';
+	import new_report from './components/new_report.vue'
+	Vue.component('tabs', Tabs);
+	Vue.component('tab', Tab);
+
+	export default {
+		data () {
+			return {
+				//fields: fields,
+				//prods: prods,
+				//options: options,
+				// myJson: data,
+				// product: 'All products',
+				// refund: 'All refund types',
+				//git: ''
+			}
+		},
+		// methods: {
+		// 	// filterListByProduct: function () {
+		// 	// 	this.product = event.target.value;
+		// 	// },
+		// 	// filterListByRenewal: function () {
+		// 	// 	this.refund = event.target.value;
+		// 	// 	console.log(this.product);
+		// 	// 	console.log(this.refund);
+		// 	// 	// var rows = document.querySelectorAll("table#table > tr");
+		// 	// 	// var k=1;
+		// 	// 	// for (var i = 0; i < rows.length; i = i+1){
+		// 	// 	//     if(rows[i].style.display === 'none'){
+		// 	// 	//         k=k+1;
+		// 	// 	//     }
+		// 	// 	// }
+		// 	// 	// console.log(k);
+		// 	// 	// console.log(rows.length);
+		// 	// 	// if (k === rows.length){
+		// 	// 	//     alert('No data retrieved for this query');
+		// 	// 	// }
+		// 	// }
+		// },
+		name: 'App.vue',
+		components: {
+			Tabs,
+			new_report
+		}
+	}
 </script>
 
-<style scoped>
+<template>
+	<div style="display: flex">
+		<tabs>
+			<tab name="Report a new refund">
+				<new_report></new_report>
+			</tab>
+			<tab name="View refund records">
+				Second tab content
+			</tab>
+		</tabs>
+	</div>
 
-</style>
+</template>
+
+<style>
+	.tabs-component {
+		margin: 4em 0;
+	}
+
+	.tabs-component-tabs {
+		border: solid 1px #ddd;
+		border-radius: 6px;
+		margin-bottom: 5px;
+	}
+
+	@media (min-width: 700px) {
+		.tabs-component-tabs {
+			border: 0;
+			align-items: stretch;
+			display: flex;
+			justify-content: flex-start;
+			margin-bottom: -1px;
+		}
+	}
+
+	.tabs-component-tab {
+		color: #999;
+		font-size: 14px;
+		font-weight: 600;
+		margin-right: 0;
+		list-style: none;
+	}
+
+	.tabs-component-tab:not(:last-child) {
+		border-bottom: dotted 1px #ddd;
+	}
+
+	.tabs-component-tab:hover {
+		color: #666;
+	}
+
+	.tabs-component-tab.is-active {
+		color: #000;
+	}
+
+	.tabs-component-tab.is-disabled * {
+		color: #cdcdcd;
+		cursor: not-allowed !important;
+	}
+
+	@media (min-width: 700px) {
+		.tabs-component-tab {
+			background-color: #fff;
+			border: solid 1px #ddd;
+			border-radius: 3px 3px 0 0;
+			margin-right: .5em;
+			transform: translateY(2px);
+			transition: transform .3s ease;
+		}
+
+		.tabs-component-tab.is-active {
+			border-bottom: solid 1px #fff;
+			z-index: 2;
+			transform: translateY(0);
+		}
+	}
+
+	.tabs-component-tab-a {
+		align-items: center;
+		color: inherit;
+		display: flex;
+		padding: .75em 1em;
+		text-decoration: none;
+	}
+
+	.tabs-component-panels {
+		padding: 4em 0;
+	}
+
+	@media (min-width: 700px) {
+		.tabs-component-panels {
+			border-top-left-radius: 0;
+			background-color: #fff;
+			border: solid 1px #ddd;
+			border-radius: 0 6px 6px 6px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, .05);
+			padding: 4em 2em;
+		}
+	}
+
+	</style>

@@ -1,11 +1,11 @@
 {
-  "name": "refunds",
+  "name": "my-vue-dashboard-plugin",
   "version": "0.0.1",
-  "description": "A Vue.js WordPress plugin for keeping data related to ThemeIsle refunds",
-  "author": "Silviu Dinu",
+  "description": "A Vue.js Project",
+  "author": "SilviuDinu <silviu@themeisle.com>",
   "scripts": {
     "build": "npm-run-all --parallel build:js build:css",
-    "dev": "npm-run-all --parallel watch:js watch:eslint watch:css",
+    "dev": "npm-run-all --parallel watch:js watch:css",
     "lint": "eslint --ext .js,.vue assets/src",
     "watch:eslint": "esw -w --ext .js,.vue assets/src --color",
     "watch:js": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules",
@@ -21,7 +21,9 @@
     "vue": "vue/dist/vue.common.js"
   },
   "dependencies": {
-    "vue": "^2.6.10"
+    "cron": "^1.7.1",
+    "vue": "^2.6.10",
+    "vue-tabs-component": "^1.5.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
