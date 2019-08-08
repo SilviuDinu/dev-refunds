@@ -7,6 +7,8 @@
 
 namespace REFUNDS;
 
+use WP_REST_Server;
+
 /**
  * Class Rest
  *
@@ -50,7 +52,7 @@ class Rest
             $this->namespace,
             '/register_refunds',
             array(
-                'methods' => \WP_REST_Server::CREATABLE,
+                'methods' => WP_REST_Server::CREATABLE,
                 'callback' => array($this, 'register_refunds'),
                 'args' => array(),
             )
@@ -70,12 +72,13 @@ class Rest
         $feedback = $_POST['feedback'];
         $github = $_POST['github'];
 
-       // echo $data . '<br>' . $produs . '<br>' . $type . '<br>' . $ticket . '<br>' . $reason . '<br>' . $feedback . '<br>' . $github;
+        // echo $data . '<br>' . $produs . '<br>' . $type . '<br>' . $ticket . '<br>' . $reason . '<br>' . $feedback . '<br>' . $github;
 
         if (isset($_POST['submit'])) {
-            register_activation_hook ( __FILE__, 'on_activate' );
+            register_activation_hook(__FILE__, 'on_activate');
 
-            function on_activate() {
+            function on_activate()
+            {
                 global $wpdb;
                 $create_table_query = "
             CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}refund_records` (
@@ -84,8 +87,8 @@ class Rest
               `address` text NOT NULL
             ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
     ";
-                require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-                dbDelta( $create_table_query );
+                require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+                dbDelta($create_table_query);
             }
         }
 

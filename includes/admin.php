@@ -23,24 +23,25 @@ class Admin
     public function __construct()
     {
         add_action('admin_menu', [$this, 'admin_menu']);
-        add_action( 'admin_enqueue_scripts', [$this, 'load_refund_scripts'] );
+        add_action('admin_enqueue_scripts', [$this, 'load_refund_scripts']);
     }
 
     /**
      * TODO: Add comment
      */
-    public function load_refund_scripts(){
+    public function load_refund_scripts()
+    {
         $screen = get_current_screen();
-        if( !isset( $screen->id ) ){
+        if (!isset($screen->id)) {
             return false;
         }
-        if( $screen->id !== 'toplevel_page_refunds-app'){
+        if ($screen->id !== 'toplevel_page_refunds-app') {
             return false;
         }
 
 
-        wp_enqueue_style( 'landing-style', plugin_dir_url(__DIR__) . 'style.css', false, '1.0.0' );
-        wp_enqueue_script( 'show-table', plugin_dir_url(__DIR__) . 'assets/js/build.js', false, '1.0.0', false );
+        wp_enqueue_style('landing-style', plugin_dir_url(__DIR__) . 'style.css', false, '1.0.0');
+        wp_enqueue_script('show-table', plugin_dir_url(__DIR__) . 'assets/js/build.js', false, '1.0.0', false);
 
     }
 

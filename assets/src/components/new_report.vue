@@ -1,9 +1,9 @@
 <script>
-    //import {fields} from './../main.js';
     import {prods} from './../main.js';
     import {options} from './../main.js';
+
     export default {
-        data () {
+        data() {
             return {
                 //fields: fields,
                 prods: prods,
@@ -44,7 +44,9 @@
     <div class="container">
         <form id="refunds" action="http://localhost/wordpress/wp-json/refunds/v1/register_refunds" method="POST">
             <label for="date">Refund Date</label>
-            <input type="date" id="date" name="date" required><br><hr><br>
+            <input type="date" id="date" name="date" required><br>
+            <hr>
+            <br>
 
             <label for="product-list">Product</label>
             <select id="product-list" name="products">
@@ -62,7 +64,8 @@
             <input type="text" required id="ticket" name="ticket" placeholder="Ticket link...">
 
             <label for="feedback">Refund Reason</label>
-            <textarea id="refund-reason" required name="refund-reason" placeholder="Write something.." style="height:100px"></textarea>
+            <textarea id="refund-reason" required name="refund-reason" placeholder="Write something.."
+                      style="height:100px"></textarea>
 
             <label for="feedback">Feedback</label>
             <textarea id="feedback" name="feedback" placeholder="Write something.." style="height:100px"></textarea>
@@ -73,8 +76,3 @@
         </form>
     </div>
 </template>
-
-<style scoped>
-
-
-    </style>
