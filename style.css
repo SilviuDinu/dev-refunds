@@ -193,7 +193,7 @@ table#table th {
 
 select#product-list, select#type_of_refund{
     vertical-align: inherit;
-    height: 39px;
+    height: 40px;
 }
 
 
@@ -206,4 +206,19 @@ select#product-list, select#type_of_refund{
     border-radius: 4px;
     text-align: center;
     color: #fff;
+    margin-bottom: 35px;
+}
+
+section#report-a-new-refund{
+    padding-top: 10px;
+}
+
+#wrapper.title-form{
+    background-color: #79e2e2;
+    margin-bottom: 35px;
+}
+
+#wrapper.title-form p{
+    font-weight: normal;
+    font-size: 18px;
 }

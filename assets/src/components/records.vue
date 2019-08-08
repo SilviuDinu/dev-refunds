@@ -1,7 +1,7 @@
 <template>
     <div id="wrapper">
 
-            <button name="show" id="show" @click="showTable">{{this.title}}</button>
+        <button name="show" id="show" @click="showTable">{{this.title}}</button>
         <select id="product-list" name="product-list" style="width: auto" @change="filterListByProduct">
             <option selected>All products</option>
             <option v-for="item in prods">{{ item }}</option>
@@ -56,6 +56,7 @@
             <!--                <td v-if="! (isNaN(index))">{{ data.github }}</td>-->
             <!--            </tr>-->
         </table>
+        <li>{{friends.code}}</li>
     </div>
 </template>
 
@@ -72,8 +73,16 @@
                 options: options,
                 product: 'All products',
                 refund: 'All refund types',
-                title: "Show results"
+                title: "Show results",
+                friends: [],
             }
+        },
+        mounted() {
+            fetch('http://localhost/wordpress/wp-json/refunds/v1/register_refunds')
+                .then(response => response.json())
+                .then((data) => {
+                this.friends = data
+            })
         },
         methods: {
             filterListByProduct: function () {

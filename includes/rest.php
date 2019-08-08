@@ -72,7 +72,7 @@ class Rest
         $feedback = $_POST['feedback'];
         $github = $_POST['github'];
 
-        // echo $data . '<br>' . $produs . '<br>' . $type . '<br>' . $ticket . '<br>' . $reason . '<br>' . $feedback . '<br>' . $github;
+      echo $data . '<br>' . $produs . '<br>' . $type . '<br>' . $ticket . '<br>' . $reason . '<br>' . $feedback . '<br>' . $github;
 
         if (isset($_POST['submit'])) {
             register_activation_hook(__FILE__, 'on_activate');
