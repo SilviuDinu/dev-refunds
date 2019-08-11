@@ -54,7 +54,7 @@ class Admin
      */
     public function admin_menu()
     {
-        add_menu_page(__('Refunds App', 'my-vue-dashboard'), __('Refunds Manager', 'my-vue-dashboard'), 'manage_options', 'refunds-app', [$this, 'plugin_page'], '
+        add_menu_page(__('Refunds Manager', 'my-vue-dashboard'), __('Refunds Manager', 'my-vue-dashboard'), 'manage_options', 'refunds-app', [$this, 'plugin_page'], '
 dashicons-businessman');
 //        add_submenu_page( 'refunds-app', 'Refund Records', 'Refund Records','manage_options', 'refund-records', [$this, 'plugin_subpage']);
     }

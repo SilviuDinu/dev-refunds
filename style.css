@@ -1,4 +1,4 @@
-body {font-family: Arial, Helvetica, sans-serif;}
+/*body {font-family: Arial, Helvetica, sans-serif;}*/
 * {box-sizing: border-box;}
 
 input[type=text], select, textarea, input[type=date] {
@@ -77,7 +77,7 @@ div#wrapper {
 }
 
 table#table {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
     overflow: hidden;
