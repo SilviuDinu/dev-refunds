@@ -16,10 +16,22 @@
         },
         methods: {
             onSubmit: function () {
+                var title = document.querySelector("div.title-form");
+                if (title.style.display === 'block') {
+                    title.style.display = 'none';
+                }
                 var msg = document.querySelector(".alert-success");
                 if (msg.style.display === 'none') {
                     msg.style.display = 'block';
                 }
+                document.addEventListener('click', function () {
+                    if (msg.style.display === 'block') {
+                        msg.style.display = 'none';
+                    }
+                    if (title.style.display === 'none') {
+                        title.style.display = 'block';
+                    }
+                });
                 // var date = new Date();
                 // console.log(date);
                 // while((Date.now() - date/1) > 0 && (Date.now() - date/1) < 6000 ){
@@ -56,11 +68,14 @@
 
 <template>
     <div class="container">
+        <div id="wrapper" class="title-form" style="display: block">
+            <p style="text-align: center">Please fill in the form below</p>
+        </div>
         <div class="alert-success" style="display: none">
             <strong>Success!</strong> You have reported a new refund</a>.
         </div>
         <form id="refunds" v-on:submit.prevent="onSubmit"
-              action="http://localhost/wordpress/wp-json/refunds/v1/register_refunds" method="POST">
+              action="../../../includes/rest.php" method="POST">
             <label for="date">Refund Date</label>
             <input type="date" id="date" name="date" required><br>
             <hr>
@@ -79,7 +94,7 @@
             </select>
 
             <label for="ticket">Ticket link</label>
-            <input @submit="onSubmit" type="text" required id="ticket" name="ticket" placeholder="Ticket link...">
+            <input type="text" required id="ticket" name="ticket" placeholder="Ticket link...">
 
             <label for="feedback">Refund Reason</label>
             <textarea id="refund-reason" required name="refund-reason" placeholder="Write something.."
@@ -90,7 +105,7 @@
 
             <label for="github">GitHub report</label>
             <input type="text" id="github" name="github" placeholder="GitHub report link...">
-            <input type="submit" name="submit" value="Submit">
+            <input v-on:submit="onSubmit" type="submit" name="submit" value="Submit">
         </form>
     </div>
 </template>

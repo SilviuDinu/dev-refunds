@@ -1,5 +1,7 @@
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
+/*body {font-family: Arial, Helvetica, sans-serif;}*/
+* {
+    box-sizing: border-box;
+}
 
 input[type=text], select, textarea, input[type=date] {
     width: 100%;
@@ -23,7 +25,7 @@ input[type=submit] {
     width: 100%;
 }
 
-button#show{
+button#show {
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
@@ -45,11 +47,11 @@ button#show{
 /*cursor: pointer;*/
 /*}*/
 
-.submit{
+.submit {
     text-align: center;
 }
 
-div#select{
+div#select {
     text-align: center;
 }
 
@@ -77,10 +79,11 @@ div#wrapper {
 }
 
 table#table {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
     overflow: hidden;
+    border: 2px;
 }
 
 table#table td, table#table th {
@@ -89,9 +92,13 @@ table#table td, table#table th {
     text-align: center;
 }
 
-table#table tr:nth-child(even){background-color: lightgrey;}
+table#table tr:nth-child(even) {
+    background-color: lightgrey;
+}
 
-table#table tr:hover {background-color: #ddd;}
+table#table tr:hover {
+    background-color: #ddd;
+}
 
 table#table th {
     padding-top: 8px;
@@ -101,7 +108,7 @@ table#table th {
     color: white;
 }
 
-.tabs-component-panels{
+.tabs-component-panels {
     width: 100%;
 }
 
@@ -191,19 +198,34 @@ table#table th {
     }
 }
 
-select#product-list, select#type_of_refund{
+select#product-list, select#type_of_refund {
     vertical-align: inherit;
-    height: 39px;
+    height: 40px;
 }
 
 
-.alert-success{
+.alert-success {
     color: #3c763d;
-   background-color: #4CAF50;
+    background-color: #4CAF50;
     border-color: #d6e9c6;
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 4px;
     text-align: center;
     color: #fff;
+    margin-bottom: 35px;
+}
+
+section#report-a-new-refund {
+    padding-top: 10px;
+}
+
+#wrapper.title-form {
+    background-color: #79e2e2;
+    margin-bottom: 35px;
+}
+
+#wrapper.title-form p {
+    font-weight: normal;
+    font-size: 18px;
 }

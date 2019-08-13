@@ -14,6 +14,7 @@ use WP_REST_Server;
  *
  * @package REFUNDS
  */
+
 class Rest
 {
 
@@ -71,8 +72,18 @@ class Rest
         $reason = $_POST['refund-reason'];
         $feedback = $_POST['feedback'];
         $github = $_POST['github'];
+        $recs = array($data, $produs, $type, $ticket, $reason, $feedback, $github);
+        echo $recs;
+//        while ($row = array($recs)) {
+//            $data[] = $row;
+//        }
+//echo json_encode($data);
+        $myfile = fopen("results.json", "w+") or die("Unable to open file!");
 
-        // echo $data . '<br>' . $produs . '<br>' . $type . '<br>' . $ticket . '<br>' . $reason . '<br>' . $feedback . '<br>' . $github;
+        fwrite($myfile, json_encode($data));
+        fclose($myfile);
+
+      echo $data . '<br>' . $produs . '<br>' . $type . '<br>' . $ticket . '<br>' . $reason . '<br>' . $feedback . '<br>' . $github;
 
         if (isset($_POST['submit'])) {
             register_activation_hook(__FILE__, 'on_activate');
