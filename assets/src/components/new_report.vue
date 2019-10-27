@@ -16,6 +16,18 @@
         },
         methods: {
             onSubmit: function () {
+                var postData = {
+                    "title": document.querySelector('#type_of_refund').value,
+                    "content": document.querySelector('#product-list').value,
+                    "status": "private"
+                };
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("POST", wpApiSettings.root + "/wp-json/wp/v2/posts");
+                xhttp.setRequestHeader("X-WP-Nonce", wpApiSettings.nonce);
+                console.log(wpApiSettings.nonce)
+                xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                xhttp.send(JSON.stringify(postData));
+
                 var title = document.querySelector("div.title-form");
                 if (title.style.display === 'block') {
                     title.style.display = 'none';
@@ -75,7 +87,7 @@
             <strong>Success!</strong> You have reported a new refund</a>.
         </div>
         <form id="refunds" v-on:submit.prevent="onSubmit"
-              action="../../../includes/rest.php" method="POST">
+              action="#" method="POST">
             <label for="date">Refund Date</label>
             <input type="date" id="date" name="date" required><br>
             <hr>

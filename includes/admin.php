@@ -26,6 +26,7 @@ class Admin
         add_action('admin_enqueue_scripts', [$this, 'load_refund_scripts']);
     }
 
+
     /**
      * TODO: Add comment
      */
@@ -41,21 +42,26 @@ class Admin
 
 
         wp_enqueue_style('landing-style', plugin_dir_url(__DIR__) . 'style.css', false, '1.0.0');
-        wp_localize_script( $this->script_handle, 'refundsData', $this->get_refunds_data() );
+        wp_localize_script($this->script_handle, 'refundsData', $this->get_refunds_data());
         wp_enqueue_script('show-table', plugin_dir_url(__DIR__) . 'assets/js/build.js', false, '1.0.0', false);
-
+        wp_localize_script('show-table', 'wpApiSettings', array(
+            'root' => get_site_url(),
+            'nonce' => wp_create_nonce('wp_rest')
+        ));
     }
 
-    private function get_refunds_data() {
+    private function get_refunds_data()
+    {
         $settings = array();
-        $options = array( 'date', 'product', 'type_of_refund', 'ticket', 'reason', 'feedback', 'github' );
-        foreach ( $options as $option ) {
-            if( isset( $_POST[$option])){
+        $options = array('date', 'product', 'type_of_refund', 'ticket', 'reason', 'feedback', 'github');
+        foreach ($options as $option) {
+            if (isset($_POST[$option])) {
                 $settings[$option] = $_POST[$option];
             }
         }
-      return $settings;
+        return $settings;
     }
+
     /**
      * Add admin menu page.
      *

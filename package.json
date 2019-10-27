@@ -1,7 +1,7 @@
 {
-  "name": "my-vue-dashboard-plugin",
+  "name": "dev-refunds",
   "version": "0.0.1",
-  "description": "A Vue.js Project",
+  "description": "A plugin built to keep track of refund data",
   "author": "SilviuDinu <silviu@themeisle.com>",
   "scripts": {
     "build": "npm-run-all --parallel build:js build:css",
@@ -26,36 +26,30 @@
     "vue-tabs-component": "^1.5.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.3",
+    "@commitlint/config-conventional": "^7.1.2",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "@commitlint/cli": "^7.2.1",
-    "@commitlint/config-conventional": "^7.1.2",
     "cross-env": "^3.2.4",
-    "css-loader": "^0.28.7",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "file-loader": "^1.1.4",
-    "style-loader": "^0.23.1",
-    "uglifyjs-webpack-plugin": "^1.2.5",
-    "vue-loader": "^14.2.4",
-    "vue-template-compiler": "^2.4.4",
+    "css-loader": "^3.2.0",
     "eslint": "^3.3.0",
     "eslint-config-standard": "^5.3.5",
     "eslint-plugin-html": "^1.5.2",
     "eslint-plugin-promise": "^2.0.1",
     "eslint-plugin-standard": "^2.0.0",
     "eslint-watch": "^5.0.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.4",
     "husky": "^1.2.0",
     "node-sass": "^4.11.0",
     "npm-run-all": "^2.3.0",
+    "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "vue-loader": "^14.2.4",
+    "vue-template-compiler": "^2.4.4",
     "webpack": "^3.12.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run pre-commit",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   }
 }
